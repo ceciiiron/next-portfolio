@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Figtree } from "next/font/google";
 import "./globals.css";
 
 // const geistSans = Geist({
@@ -12,9 +12,15 @@ import "./globals.css";
 // 	subsets: ["latin"],
 // });
 
-const ovo = Inter({
-	variable: "--font-inter",
-	weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+// const inter = Inter({
+// 	variable: "--font-inter",
+// 	weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+// });
+
+const figTree = Figtree({
+	variable: "--font-fig-tree",
+	weight: ["300", "400", "500", "600", "700", "800", "900"],
+	subsets: ["latin"],
 });
 
 export const metadata: Metadata = {
@@ -30,7 +36,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-			<body className={` ${ovo.variable} antialiased`}>{children}</body>
+			<body className={`antialiased ${figTree.variable}`}>{children}</body>
 		</html>
 	);
 }

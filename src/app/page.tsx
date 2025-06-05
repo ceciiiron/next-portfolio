@@ -1,214 +1,265 @@
 // import Image from "next/image";
 import Image from "next/image";
 import Navbar from "./components/Navbar";
+// import { Collapsible } from "@/components/ui/collapsible";
+// import { CollapsibleTrigger } from "@radix-ui/react-collapsible";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { IconBrandGithub } from "@tabler/icons-react";
+import Link from "next/link";
+import SVGTailwindCss from "@/components/svg/SVGTailwindCss";
 
 const Section = ({ children }: { children: React.ReactNode }) => {
-	return <div className=" my-20">{children}</div>;
+	return <div className=" my-16 flex flex-col gap-10">{children}</div>;
+};
+
+const SectionTitle = ({ children }: { children: React.ReactNode }) => {
+	return <h1 className="text-2xl font-bold  dark:text-gruvbox-light text-gruvbox-dark">{children}</h1>;
+};
+
+import React from "react";
+import SVGBootstrap from "@/components/svg/SVGBootstrap";
+import SVGLaravel from "@/components/svg/SVGLaravel";
+import SVGCodeigniter from "@/components/svg/SVGCodeigniter";
+import SVGReact from "@/components/svg/SVGReact";
+import SVGTypescript from "@/components/svg/SVGTypescript";
+import SVGJquery from "@/components/svg/SVGJquery";
+import SVGJavascript from "@/components/svg/SVGJavascript";
+import SVGMySQL from "@/components/svg/SVGMySQL";
+import SVGPHP from "@/components/svg/SVGPHP";
+import SVGNodeJS from "@/components/svg/SVGNodeJS";
+import SVGAlpineJS from "@/components/svg/SVGAlpineJS";
+import SVGNextJS from "@/components/svg/SVGNextJS";
+import SVGPostgresql from "@/components/svg/SVGPostgresql";
+import SVGHTML from "@/components/svg/SVGHTML";
+import SVGCSS from "@/components/svg/SVGCSS";
+import SVGMaterialUI from "@/components/svg/SVGMaterialUI";
+import SVGExpressJS from "@/components/svg/SVGExpressJS";
+import SVGMantine from "@/components/svg/SVGMantine";
+import SVGMongoDB from "@/components/svg/SVGMongoDB";
+
+const StackBadge = ({ label, SVGIcon }: { label: string; SVGIcon: React.ReactElement }) => {
+	return (
+		<span className="flex items-center gap-2 text-xs px-3 py-1 border rounded-sm">
+			{SVGIcon}
+			<p className="text-sm">{label}</p>
+		</span>
+	);
 };
 
 export default function Home() {
 	return (
-		// <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-		//   <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-		//     <Image
-		//       className="dark:invert"
-		//       src="/next.svg"
-		//       alt="Next.js logo"
-		//       width={180}
-		//       height={38}
-		//       priority
-		//     />
-		//     <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-		//       <li className="mb-2 tracking-[-.01em]">
-		//         Get started by editing{" "}
-		//         <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-		//           src/app/page.tsx
-		//         </code>
-		//         .
-		//       </li>
-		//       <li className="tracking-[-.01em]">
-		//         Save and see your changes instantly.
-		//       </li>
-		//     </ol>
-
-		//     <div className="flex gap-4 items-center flex-col sm:flex-row">
-		//       <a
-		//         className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-		//         href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-		//         target="_blank"
-		//         rel="noopener noreferrer"
-		//       >
-		//         <Image
-		//           className="dark:invert"
-		//           src="/vercel.svg"
-		//           alt="Vercel logomark"
-		//           width={20}
-		//           height={20}
-		//         />
-		//         Deploy now
-		//       </a>
-		//       <a
-		//         className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-		//         href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-		//         target="_blank"
-		//         rel="noopener noreferrer"
-		//       >
-		//         Read our docs
-		//       </a>
-		//     </div>
-		//   </main>
-		//   <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-		//     <a
-		//       className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-		//       href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-		//       target="_blank"
-		//       rel="noopener noreferrer"
-		//     >
-		//       <Image
-		//         aria-hidden
-		//         src="/file.svg"
-		//         alt="File icon"
-		//         width={16}
-		//         height={16}
-		//       />
-		//       Learn
-		//     </a>
-		//     <a
-		//       className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-		//       href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-		//       target="_blank"
-		//       rel="noopener noreferrer"
-		//     >
-		//       <Image
-		//         aria-hidden
-		//         src="/window.svg"
-		//         alt="Window icon"
-		//         width={16}
-		//         height={16}
-		//       />
-		//       Examples
-		//     </a>
-		//     <a
-		//       className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-		//       href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-		//       target="_blank"
-		//       rel="noopener noreferrer"
-		//     >
-		//       <Image
-		//         aria-hidden
-		//         src="/globe.svg"
-		//         alt="Globe icon"
-		//         width={16}
-		//         height={16}
-		//       />
-		//       Go to nextjs.org →
-		//     </a>
-		//   </footer>
-		// </div>
-		<div className="mx-52 relative">
+		<div className="max-w-5xl mx-auto relative mt-36">
 			<Navbar />
 
-			<div className=" py-40 my-16">
-				<div className="grid grid-cols-3 gap-40">
-					<div className="flex flex-col justify-center gap-5 col-span-2 ">
-						<h1 className="text-5xl font-bold mb-4">
+			<div className="my-16 py-16 rounded-md ">
+				<div className="grid grid-cols-3 gap-40 ">
+					<div className="flex flex-col justify-center gap-10 col-span-2 ">
+						<h1 className="text-5xl font-extrabold leading-tight">
 							Let&apos;s Build Something <br />
-							Extraordinary Together 🚀
-							{/* <div className="flex gap-2"> */}
-							{/* <span>Amazing</span> */}
-							{/* <ol className="flex overflow-hidden h-30 bg-red-500 leading-30">
-									<li>
-										<span>Amazing</span>
-									</li>
-									<li>
-										<span>Extraordinary</span>
-									</li>
-									<li>
-										<span>Remarkable</span>
-									</li>
-									<li>
-										<span>Fun</span>
-									</li>
-								</ol> */}
-							{/* </div> */}
+							<span className="bg-gradient-to-r from-black via-gray-600 to-white bg-[length:200%_auto] bg-clip-text text-transparent [animation:gradient-shine_3s_ease_infinite]">
+								Extraordinary Together
+							</span>
 						</h1>
 						<p className=" text-lg ">
-							I&apos;m <span className="underline">Ceciron Alejo III</span>, a motivated and skilled full-stack software developer seeking a dynamic role where I can
-							leverage my expertise, continuously learn, and contribute high-quality solutions
+							I&apos;m <span className="font-bold">Ceciron Alejo III</span>, a motivated and skilled full-stack software developer seeking a dynamic role where I can
+							leverage my expertise, continuously learn, and contribute high-quality software solutions
 						</p>
+						<div className="flex flex-row gap-5">
+							<Button size={"xl"}>More about me </Button>
+							<Button size={"xl"} variant={"secondary"} asChild>
+								<Link href="https://github.com/ceciiiron" target="_blank">
+									<IconBrandGithub size={20} /> GitHub
+								</Link>
+							</Button>
+						</div>
 					</div>
 
-					<div className="flex justify-end  ">
-						{/* <div className="rounded-full w-3xl h-3xl"> */}
-						<div>
+					<div className="flex justify-end ">
+						<div className="flex flex-col justify-center">
 							<Image src={"/assets/images/ceciron.jpg"} width={300} height={300} className="rounded-full object-cover w-3xl h-3xl" alt="profile-picture" />
-							{/* </div> */}
 						</div>
 					</div>
 				</div>
 			</div>
 
 			<Section>
-				<div className="">
-					<h1 className=" text-3xl font-bold mb-8 text-gruvbox-light">~ / Projects</h1>
-					<div className="cards-container grid grid-cols-3 gap-10">
-						<div className="w-full min-h-84 p-4  border rounded-lg border-gruvbox-light/30">
-							<h2 className="font-bold text-2xl">Electronic Queuing System</h2>
-						</div>
-						<div className="w-full min-h-84 p-4  border rounded-lg border-gruvbox-light/30">
-							<h2 className="font-bold text-2xl">Online Watch Shop</h2>
-						</div>
-						<div className="w-full min-h-84 p-4  border rounded-lg border-gruvbox-light/30">
-							<h2 className="font-bold text-2xl">School Research Document Management System</h2>
-						</div>
-					</div>
-				</div>
-			</Section>
-
-			<Section>
-				<div className="">
-					<h1 className=" text-3xl font-bold mb-8 text-gruvbox-light">~ / Work</h1>
-					<div className="cards-container flex flex-col gap-10">
-						<div className="w-full p-4  border rounded-lg border-gruvbox-light/30">
-							<h2 className="font-bold text-gray-600">August 2023 - Present</h2>
-							<h2 className="font-bold ">Bicol Regional Hospital and Medical Center (Computer Programmer III)</h2>
-							<div className="">
-								<ul className="list-disc list-inside">
-									<li>Developed a web-based centralized electronic queuing system across different departments. </li>
-									<li>
-										Developed iHOMIS-NX Web (Integrated Hospital Operations Management Information System ) and integrated to Radiology Information System
-										Module. Main features:
-										<ul className="list-disc list-inside ml-4">
-											<li>Doctor’s order requests for radiologic exams.</li>
-											<li>Charging of radiologic procedures.</li>
-											<li>
-												Integrated to a third-party Picture Archiving and Communication Server (PACS) Provider using HL7 standard messages through Mirth
-												software.
-											</li>
-											<li>Report generation for census.</li>
-										</ul>
-									</li>
-
-									<li>
-										Performed software administration and technical support related tasks under Integrated Hospital Operations and Management Program IT Unit
-										(IHOMP-IT Unit).
-									</li>
-									<li>Aided in the development of PACS RIS - IT - use, roles, responsibilities, and policies.</li>
-									<li>Provided documentation and performed end-user training for deployed systems.</li>
-									<li>Monitored worklogs assigned through internal IT Helpdesk ticketing system.</li>
-								</ul>
+				<SectionTitle>📁 Projects</SectionTitle>
+				<div className="cards-container grid grid-cols-3 gap-10 ">
+					<Card className="relative py-0 overflow-hidden">
+						<div className="px-0 overflow-hidden">
+							<div className="  h-48 w-full overflow-hidden  ">
+								<Image
+									src={"/assets/images/projects/qs/header.png"}
+									width={300}
+									height={500}
+									className="object-cover object-fit object-center w-full  overflow-hidden h-48 "
+									alt="logo"
+								/>
 							</div>
 						</div>
 
-						<div className="w-full p-4  border rounded-lg border-gruvbox-light/30">
-							<h2 className="font-bold text-gray-600">February 2023 - April 2023</h2>
-							<h2 className="font-bold ">Bicol University College of Science CSIT Dept. - OJT (Computer Programmer)</h2>
+						<CardHeader className=" w-full">
+							<CardTitle className="text-lg">Electronic Queuing System</CardTitle>
+						</CardHeader>
+					</Card>
+
+					<Card className="relative py-0 overflow-hidden gap-0">
+						<div className="px-0 overflow-hidden">
+							<div className="h-48 w-full overflow-hidden  ">
+								<Image
+									src={"/assets/images/projects/bucsrdms/header.png"}
+									width={300}
+									height={500}
+									className="object-cover object-fit object-center w-full  overflow-hidden h-48 "
+									alt="logo"
+								/>
+							</div>
 						</div>
-					</div>
+
+						<CardHeader className=" w-full p-6">
+							<CardTitle className="text-lg">Bicol University College of Science Research Document and Management System</CardTitle>
+						</CardHeader>
+					</Card>
+
+					<Card className="relative py-0 overflow-hidden">
+						<div className="px-0 overflow-hidden">
+							<div className="  h-48 w-full overflow-hidden  ">
+								<Image
+									src={"/assets/images/projects/bucsrdms/1.jpeg"}
+									width={300}
+									height={500}
+									className="object-cover object-fit object-center w-full  overflow-hidden h-48"
+									alt="logo"
+								/>
+							</div>
+						</div>
+
+						<CardHeader className=" w-full">
+							<CardTitle className="text-lg">One Banwaan: A Barangay-Centric Smart Community in Legazpi City</CardTitle>
+						</CardHeader>
+					</Card>
+				</div>
+				<div className="flex justify-center">
+					<Button size={"xl"}> Show more projects</Button>
 				</div>
 			</Section>
 
 			<Section>
+				<SectionTitle>🧰 Stack</SectionTitle>
+
+				<Card>
+					<CardContent>
+						<div className="flex flex-col gap-4">
+							{/* Backend */}
+							<div className="flex flex-col gap-1">
+								<p className="text-md">Backend</p>
+								<div className="flex flex-row flex-wrap gap-2">
+									{/* Databases */}
+									<StackBadge label="MySQL" SVGIcon={<SVGMySQL />} />
+									<StackBadge label="Postgresql" SVGIcon={<SVGPostgresql />} />
+									<StackBadge label="MongoDB" SVGIcon={<SVGMongoDB />} />
+
+									{/* Backend Languages & Frameworks */}
+									<StackBadge label="PHP" SVGIcon={<SVGPHP />} />
+									<StackBadge label="Laravel" SVGIcon={<SVGLaravel />} />
+									<StackBadge label="Codeigniter" SVGIcon={<SVGCodeigniter />} />
+									<StackBadge label="Node.js" SVGIcon={<SVGNodeJS />} />
+									<StackBadge label="Express.js" SVGIcon={<SVGExpressJS />} />
+									<StackBadge label="Next.js" SVGIcon={<SVGNextJS />} />
+								</div>
+							</div>
+
+							{/* Frontend */}
+							<div className="flex flex-col gap-1">
+								<p className="text-md">Frontend</p>
+								<div className="flex flex-row flex-wrap gap-2">
+									{/* Core Languages */}
+									<StackBadge label="HTML" SVGIcon={<SVGHTML />} />
+									<StackBadge label="CSS" SVGIcon={<SVGCSS />} />
+									<StackBadge label="Javascript" SVGIcon={<SVGJavascript />} />
+									<StackBadge label="Typescript" SVGIcon={<SVGTypescript />} />
+
+									{/* Frameworks & Libraries */}
+									<StackBadge label="React.js" SVGIcon={<SVGReact />} />
+									<StackBadge label="jQuery" SVGIcon={<SVGJquery />} />
+									<StackBadge label="Alpine.js" SVGIcon={<SVGAlpineJS />} />
+
+									{/* UI Frameworks */}
+									<StackBadge label="TailwindCSS" SVGIcon={<SVGTailwindCss />} />
+									<StackBadge label="Bootstrap" SVGIcon={<SVGBootstrap />} />
+									<StackBadge label="MaterialUI" SVGIcon={<SVGMaterialUI />} />
+									<StackBadge label="MantineUI" SVGIcon={<SVGMantine />} />
+								</div>
+							</div>
+						</div>
+					</CardContent>
+				</Card>
+			</Section>
+
+			<Section>
+				<SectionTitle>🧑‍💼 Work Experience</SectionTitle>
+				<div className="cards-container grid grid-cols-2 gap-10 mb-4">
+					{/* <div className="w-full p-4  border rounded-lg border-gruvbox-light/30"> */}
+					<Card className="">
+						<CardHeader>
+							<CardTitle>Bicol Regional Hospital and Medical Center - Computer Programmer III</CardTitle>
+							<CardDescription>August 2023 - Present</CardDescription>
+						</CardHeader>
+						<CardContent>
+							{/* <p>
+									Developed iHOMIS-NX Web (Integrated Hospital Operations Management Information System ) and integrated to Radiology Information System Module.
+									Main features:
+								</p> */}
+							<Button variant={"outline"}>Read more</Button>
+						</CardContent>
+						{/* <Collapsible>
+									<CollapsibleTrigger></CollapsibleTrigger> */}
+						{/* <h2 className="font-bold text-gray-600">August 2023 - Present</h2>
+								<h2 className="font-bold ">Bicol Regional Hospital and Medical Center (Computer Programmer III)</h2>
+								<div className="">
+									<ul className="list-disc list-inside">
+										<li>Developed a web-based centralized electronic queuing system across different departments. </li>
+										<li>
+											Developed iHOMIS-NX Web (Integrated Hospital Operations Management Information System ) and integrated to Radiology Information System
+											Module. Main features:
+											<ul className="list-disc list-inside ml-4">
+												<li>Doctor's order requests for radiologic exams.</li>
+												<li>Charging of radiologic procedures.</li>
+												<li>
+													Integrated to a third-party Picture Archiving and Communication Server (PACS) Provider using HL7 standard messages through Mirth
+													software.
+												</li>
+												<li>Report generation for census.</li>
+											</ul>
+										</li>
+
+										<li>
+											Performed software administration and technical support related tasks under Integrated Hospital Operations and Management Program IT
+											Unit (IHOMP-IT Unit).
+										</li>
+										<li>Aided in the development of PACS RIS - IT - use, roles, responsibilities, and policies.</li>
+										<li>Provided documentation and performed end-user training for deployed systems.</li>
+										<li>Monitored worklogs assigned through internal IT Helpdesk ticketing system.</li>
+									</ul>
+								</div> */}
+						{/* </Collapsible> */}
+					</Card>
+					{/* </div> */}
+
+					<Card>
+						<CardHeader>
+							<CardTitle>Bicol University College of Science CSIT Dept. - OJT Computer Programmer</CardTitle>
+							<CardDescription>February 2023 - April 2023</CardDescription>
+						</CardHeader>
+						<CardContent>
+							<Button variant={"outline"}>Read more</Button>
+						</CardContent>
+					</Card>
+				</div>
+			</Section>
+
+			{/* <Section>
 				<div className="">
 					<h1 className=" text-3xl font-bold mb-8  text-gruvbox-light">~ / Education</h1>
 					<div className=" border-l border-gruvbox-light relative">
@@ -230,6 +281,12 @@ export default function Home() {
 						</div>
 					</div>
 				</div>
+			</Section> */}
+
+			<Section>
+				<footer className=" dark:border-gruvbox-light/30 dark:bg-gruvbox-dark/50 rounded-xl  w-full mx-auto inset-x-0  max-w-4xl z-50 ">
+					<p className="text-center">Made with ✨ and ❤️ by Ceciron.</p>
+				</footer>
 			</Section>
 		</div>
 	);
