@@ -9,6 +9,32 @@
 	--color-gruvbox-light: #e7d7ad;
 }
 
+/* .running-text > li {
+
+} */
+.running-text > li {
+	animation: changetest 3s infinite;
+	transform: translate3d(0, 0, 0);
+	display: block;
+	color: blueviolet !important;
+}
+
+@keyframes changetest {
+	0%,
+	13%,
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+	18%,
+	28% {
+		transform: translate3d(0, -97%, 0);
+	}
+	72%,
+	100% {
+		transform: translate3d(0, 0, 0);
+	}
+}
+
 /* @keyframes gradient-shine {
 	0%,
 	100% {
@@ -62,6 +88,8 @@
 
 body {
 	font-family: var(--font-fig-tree), Arial, Helvetica, sans-serif;
+	background-image: radial-gradient(#999 5%, transparent 0);
+	background-size: 20px 20px;
 }
 
 :root {

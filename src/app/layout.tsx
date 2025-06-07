@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import { Figtree } from "next/font/google";
 import "./globals.css";
+import Navbar from "../components/layout/Navbar";
+import { Section } from "@/components/ui/section";
+import { Footer } from "@/components/layout/Footer";
 
 // const geistSans = Geist({
 // 	variable: "--font-geist-sans",
@@ -36,7 +39,13 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-			<body className={`antialiased ${figTree.variable}`}>{children}</body>
+			<body className={`antialiased ${figTree.variable}`}>
+				<Navbar />
+				{children}
+				<Section>
+					<Footer />
+				</Section>
+			</body>
 		</html>
 	);
 }
