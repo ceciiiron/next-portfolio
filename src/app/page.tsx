@@ -28,8 +28,8 @@ import SVGMaterialUI from "@/components/svg/SVGMaterialUI";
 import SVGExpressJS from "@/components/svg/SVGExpressJS";
 import SVGMantine from "@/components/svg/SVGMantine";
 import SVGMongoDB from "@/components/svg/SVGMongoDB";
-import { Section, SectionTitle } from "@/components/ui/section";
-import { ProjectCard } from "@/components/cards/ProjectCard";
+import { Section } from "@/components/ui/section";
+// import { ProjectCard } from "@/components/cards/ProjectCard";
 
 const StackBadge = ({ label, SVGIcon }: { label: string; SVGIcon: React.ReactElement }) => {
 	return (
