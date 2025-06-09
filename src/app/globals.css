@@ -13,13 +13,11 @@
 
 } */
 .running-text > li {
-	animation: changetest 3s infinite;
+	animation: scrollText 10s infinite;
 	transform: translate3d(0, 0, 0);
-	display: block;
-	color: blueviolet !important;
 }
 
-@keyframes changetest {
+@keyframes scrollText {
 	0%,
 	13%,
 	100% {
@@ -27,9 +25,21 @@
 	}
 	18%,
 	28% {
-		transform: translate3d(0, -97%, 0);
+		transform: translate3d(0, -100%, 0);
 	}
-	72%,
+	30%,
+	40% {
+		transform: translate3d(0, -200%, 0);
+	}
+	50%,
+	60% {
+		transform: translate3d(0, -300%, 0);
+	}
+	70%,
+	80% {
+		transform: translate3d(0, -300%, 0);
+	}
+	98%,
 	100% {
 		transform: translate3d(0, 0, 0);
 	}

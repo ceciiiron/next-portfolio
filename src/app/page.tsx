@@ -79,21 +79,23 @@ export default function Home() {
 					<div className="flex flex-col justify-center gap-10 col-span-2 ">
 						<div>
 							<p className="  mb-5 border px-6 py-2 inline-block rounded-md bg-white shadow-xs">Available for work &nbsp; 👋</p>
-							<h2 className="text-5xl font-extrabold leading-tight">Let&apos;s Build Something</h2>
+							<h2 className="text-6xl font-extrabold leading-tight">Let&apos;s Build Something</h2>
 
-							<h2 className="text-5xl font-extrabold leading-tight flex overflow-hidden h-16">
-								<ul className="running-text block">
-									<li className="block">
+							<h2 className="text-6xl/1 font-extrabold leading-tight flex overflow-hidden h-20">
+								<ul className="running-text block p-0 m-0 *:block">
+									<li>
 										<span className=" ">Extraordinary</span>
 									</li>
-									<li className="block">
-										<span className=" ">Smart</span>
+									<li>
+										<span className=" ">Innovative</span>
 									</li>
-									<li className="block">
+									<li>
+										<span className=" ">Creative</span>
+									</li>
+									<li>
 										<span className=" ">Impactful</span>
 									</li>
 								</ul>
-								&nbsp;Together
 							</h2>
 
 							{/* <h1 className="text-5xl font-extrabold leading-tight">
