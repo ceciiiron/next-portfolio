@@ -1,4 +1,6 @@
 // import Image from "next/image";
+
+"use client";
 import Link from "next/link";
 import Image from "next/image";
 // import { Collapsible } from "@/components/ui/collapsible";
@@ -31,6 +33,8 @@ import SVGMongoDB from "@/components/svg/SVGMongoDB";
 import { Section } from "@/components/ui/section";
 // import { ProjectCard } from "@/components/cards/ProjectCard";
 
+import { motion } from "motion/react";
+
 const StackBadge = ({ label, SVGIcon }: { label: string; SVGIcon: React.ReactElement }) => {
 	return (
 		<span className="flex items-center gap-2 text-xs px-3 py-1 border rounded-sm">
@@ -50,24 +54,26 @@ interface LandingPageProjectCardProps {
 
 const LandingPageProjectCard: React.FC<LandingPageProjectCardProps> = ({ title, description, imageSrc, imageAlt = "Project thumbnail", className = "" }) => {
 	return (
-		<Card className={`relative p-0 overflow-hidden gap-0 h-80  ${className}`}>
-			<div className="px-0 overflow-hidden">
-				<div className=" h-52 w-full overflow-hidden">
-					<Image
-						src={imageSrc}
-						width={500}
-						height={500}
-						className="object-cover object-fit object-center w-full overflow-hidden  h-52 hover:scale-125 transition-all"
-						alt={imageAlt}
-					/>
+		<motion.div initial={{ opacity: 0, y: 15, filter: "blur(10px)" }} whileInView={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }} transition={{ duration: 0.5 }}>
+			<Card className={`relative p-0 overflow-hidden gap-0 h-80  ${className}`}>
+				<div className="px-0 overflow-hidden">
+					<div className=" h-52 w-full overflow-hidden">
+						<Image
+							src={imageSrc}
+							width={500}
+							height={500}
+							className="object-cover object-fit object-center w-full overflow-hidden  h-52 hover:scale-125 transition-all"
+							alt={imageAlt}
+						/>
+					</div>
 				</div>
-			</div>
 
-			<CardHeader className="w-full py-6  bottom-0 z-10">
-				<CardTitle className="text-2xl">{title}</CardTitle>
-				{description && <CardDescription>{description}</CardDescription>}
-			</CardHeader>
-		</Card>
+				<CardHeader className="w-full py-6  bottom-0 z-10">
+					<CardTitle className="text-2xl">{title}</CardTitle>
+					{description && <CardDescription>{description}</CardDescription>}
+				</CardHeader>
+			</Card>
+		</motion.div>
 	);
 };
 
@@ -77,38 +83,15 @@ export default function Home() {
 			<div className="mb-[12rem]">
 				<div className="grid grid-cols-3 gap-40 ">
 					<div className="flex flex-col justify-center gap-10 col-span-2 ">
-						<div>
+						<motion.div
+							initial={{ opacity: 0, y: 15, filter: "blur(5px)" }}
+							whileInView={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
+							transition={{ duration: 0.5 }}>
+							{/* <div> */}
 							<p className="  mb-5 border px-6 py-2 inline-block rounded-md bg-white shadow-xs">Available for work &nbsp; 👋</p>
 							<h2 className="text-6xl font-extrabold leading-tight">Let&apos;s Build Something</h2>
-							{/* <div className="relative inline-block">
-								<span className="absolute inset-0 text-4xl font-extrabold text-black drop-shadow-[0_0_3px_#6c960d] select-none">Jungle Glow</span>
-
-								<span className="relative text-4xl font-extrabold bg-[linear-gradient(225deg,_#ffce06_15%,_#6c960d_100%)] bg-clip-text text-transparent drop-shadow-[0_0_6px_#ffce06]">
-									Jungle Glow
-								</span>
-							</div> */}
 							<h2 className="text-6xl/1 font-extrabold leading-tight flex overflow-hidden h-20">
 								<ul className="running-text block p-0 m-0 *:block   ">
-									{/* <li>
-										<span className="bg-[linear-gradient(200deg,_#FF6FD8,_#C26CFF,_#3813C2)] bg-clip-text text-transparent">Extraordinary</span>
-									</li>
-
-									<li>
-										<span className="bg-[linear-gradient(90deg,_#00F260,_#24D3B1,_#0575E6)] bg-clip-text text-transparent">Innovative</span>
-									</li>
-
-									<li>
-										<span className="bg-[linear-gradient(90deg,_#8e2de2,_#7a42f4,_#4a00e0)] bg-clip-text text-transparent">Creative</span>
-									</li>
-
-									<li>
-										<span className="bg-[linear-gradient(90deg,_#ff512f,_#ff5e7e,_#dd2476)] bg-clip-text text-transparent">Impactful</span>
-									</li>
-
-									<li>
-										<span className="bg-[linear-gradient(90deg,_#11998e,_#31c487,_#38ef7d)] bg-clip-text text-transparent">Sustainable</span>
-									</li> */}
-
 									<li>
 										<span className="bg-[linear-gradient(90deg,_#FF6FD8,_#C26CFF,_#A44CFF,_#3813C2)] bg-clip-text text-transparent animate-[gradientShift_6s_ease-in-out_infinite] bg-[length:400%_400%] ">
 											Extraordinary
@@ -141,29 +124,27 @@ export default function Home() {
 								</ul>
 							</h2>
 
-							{/* <h1 className="text-5xl font-extrabold leading-tight">
-								Passionate & Skilled <br />
-								<span className="bg-gradient-to-br from-[#020024] via-[#090979] to-[#00d4ff] bg-[length:200%_auto] bg-clip-text text-transparent [animation:gradient-shine_3s_ease_infinite] ">
-									Full-Stack Software Developer
-								</span>
-							</h1> */}
-						</div>
-
-						<p className=" text-lg ">
-							I&apos;m <span className="font-extrabold">Ceciron Alejo III</span>, a motivated and skilled <i>full-stack software developer</i> ✨ <br /> Always
-							learning, always building — and always focused on creating meaningful impact through code.
-						</p>
+							<p className=" text-lg ">
+								I&apos;m <span className="font-extrabold">Ceciron Alejo III</span>, a motivated and skilled <i>full-stack software developer</i> ✨ <br /> Always
+								learning, always building — and always focused on creating meaningful impact through code.
+							</p>
+						</motion.div>
 
 						{/* I love turning
 							complex problems into simple, intuitive solutions that serve real people. */}
-						<div className="flex flex-row gap-5">
-							<Button size={"2xl"}>More about me </Button>
+						<motion.div
+							initial={{ opacity: 0, y: 15, filter: "blur(5px)" }}
+							whileInView={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
+							transition={{ duration: 0.5, delay: 0.2 }}
+							className="flex flex-row gap-5">
+							<Button size={"2xl"}>More about me</Button>
+
 							<Button size={"2xl"} variant={"secondary"} asChild>
 								<Link href="https://github.com/ceciiiron" target="_blank">
 									<IconBrandGithub size={20} /> GitHub
 								</Link>
 							</Button>
-						</div>
+						</motion.div>
 					</div>
 
 					<div className="flex justify-end ">

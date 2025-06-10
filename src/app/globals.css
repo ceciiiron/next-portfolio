@@ -13,7 +13,7 @@
 
 } */
 .running-text > li {
-	animation: scrollText 10s infinite;
+	animation: scrollText 10s infinite linear;
 	transform: translate3d(0, 0, 0);
 }
 
@@ -28,7 +28,7 @@
 		transform: translate3d(0, -100%, 0);
 	}
 	30%,
-	40% {
+	49% {
 		transform: translate3d(0, -200%, 0);
 	}
 	50%,
@@ -56,16 +56,6 @@
 		background-position: 0% 50%;
 	}
 }
-
-/* @keyframes gradient-shine {
-	0%,
-	100% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-} */
 
 @theme inline {
 	--color-background: var(--color-background);

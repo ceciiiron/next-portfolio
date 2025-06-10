@@ -7,6 +7,10 @@ const Navbar = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
 
 	useEffect(() => {
+		if (window.scrollY > 20) {
+			setIsScrolled(true);
+		}
+
 		const handleScroll = () => {
 			setIsScrolled(window.scrollY > 20);
 		};
@@ -16,6 +20,11 @@ const Navbar = () => {
 
 	return (
 		// nav: dark:border-gruvbox-light/30 dark:bg-gruvbox-dark/50
+
+		// <motion.nav
+		// 	initial={{ opacity: 0, y: 15, filter: "blur(5px)" }}
+		// 	animate={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
+		// 	transition={{ duration: 0.5 }}
 		<nav
 			className={`py-5 flex justify-between  rounded-xl fixed w-full mx-auto inset-x-0 top-8  z-50 transition-all duration-300 ${
 				isScrolled ? "max-w-4xl shadow px-8 backdrop-blur-lg bg-white/70 " : "max-w-6xl "
@@ -42,8 +51,6 @@ const Navbar = () => {
 					<a href="#projects">Contact</a>{" "}
 				</li>
 			</ul>
-
-			{/* <h2 className="hidden lg:flex">Contact Me</h2> */}
 		</nav>
 	);
 };
