@@ -80,20 +80,63 @@ export default function Home() {
 						<div>
 							<p className="  mb-5 border px-6 py-2 inline-block rounded-md bg-white shadow-xs">Available for work &nbsp; 👋</p>
 							<h2 className="text-6xl font-extrabold leading-tight">Let&apos;s Build Something</h2>
+							{/* <div className="relative inline-block">
+								<span className="absolute inset-0 text-4xl font-extrabold text-black drop-shadow-[0_0_3px_#6c960d] select-none">Jungle Glow</span>
 
+								<span className="relative text-4xl font-extrabold bg-[linear-gradient(225deg,_#ffce06_15%,_#6c960d_100%)] bg-clip-text text-transparent drop-shadow-[0_0_6px_#ffce06]">
+									Jungle Glow
+								</span>
+							</div> */}
 							<h2 className="text-6xl/1 font-extrabold leading-tight flex overflow-hidden h-20">
-								<ul className="running-text block p-0 m-0 *:block">
-									<li>
-										<span className=" ">Extraordinary</span>
+								<ul className="running-text block p-0 m-0 *:block   ">
+									{/* <li>
+										<span className="bg-[linear-gradient(200deg,_#FF6FD8,_#C26CFF,_#3813C2)] bg-clip-text text-transparent">Extraordinary</span>
 									</li>
+
 									<li>
-										<span className=" ">Innovative</span>
+										<span className="bg-[linear-gradient(90deg,_#00F260,_#24D3B1,_#0575E6)] bg-clip-text text-transparent">Innovative</span>
 									</li>
+
 									<li>
-										<span className=" ">Creative</span>
+										<span className="bg-[linear-gradient(90deg,_#8e2de2,_#7a42f4,_#4a00e0)] bg-clip-text text-transparent">Creative</span>
 									</li>
+
 									<li>
-										<span className=" ">Impactful</span>
+										<span className="bg-[linear-gradient(90deg,_#ff512f,_#ff5e7e,_#dd2476)] bg-clip-text text-transparent">Impactful</span>
+									</li>
+
+									<li>
+										<span className="bg-[linear-gradient(90deg,_#11998e,_#31c487,_#38ef7d)] bg-clip-text text-transparent">Sustainable</span>
+									</li> */}
+
+									<li>
+										<span className="bg-[linear-gradient(90deg,_#FF6FD8,_#C26CFF,_#A44CFF,_#3813C2)] bg-clip-text text-transparent animate-[gradientShift_6s_ease-in-out_infinite] bg-[length:400%_400%] ">
+											Extraordinary
+										</span>
+									</li>
+
+									<li>
+										<span className="bg-[linear-gradient(90deg,_#00F260,_#24D3B1,_#1CACE9,_#0575E6)] bg-clip-text text-transparent animate-[gradientShift_6s_ease-in-out_infinite] bg-[length:400%_400%]">
+											Innovative
+										</span>
+									</li>
+
+									<li>
+										<span className="bg-[linear-gradient(90deg,_#8e2de2,_#7a42f4,_#643eea,_#4a00e0)] bg-clip-text text-transparent animate-[gradientShift_6s_ease-in-out_infinite] bg-[length:400%_400%]">
+											Creative
+										</span>
+									</li>
+
+									<li>
+										<span className="bg-[linear-gradient(90deg,_#ff512f,_#ff5e7e,_#ec4899,_#dd2476)] bg-clip-text text-transparent animate-[gradientShift_6s_ease-in-out_infinite] bg-[length:400%_400%]">
+											Impactful
+										</span>
+									</li>
+
+									<li>
+										<span className="bg-[linear-gradient(90deg,_#11998e,_#31c487,_#4be38a,_#38ef7d)] bg-clip-text text-transparent animate-[gradientShift_6s_ease-in-out_infinite] bg-[length:400%_400%] ">
+											Sustainable
+										</span>
 									</li>
 								</ul>
 							</h2>
@@ -107,9 +150,12 @@ export default function Home() {
 						</div>
 
 						<p className=" text-lg ">
-							I&apos;m <span className="font-extrabold">Ceciron Alejo III</span>, a motivated and skilled <i>full-stack software developer</i> ✨ <br />
-							seeking a dynamic role where I can leverage my expertise, continuously learn, and contribute high-quality software solutions
+							I&apos;m <span className="font-extrabold">Ceciron Alejo III</span>, a motivated and skilled <i>full-stack software developer</i> ✨ <br /> Always
+							learning, always building — and always focused on creating meaningful impact through code.
 						</p>
+
+						{/* I love turning
+							complex problems into simple, intuitive solutions that serve real people. */}
 						<div className="flex flex-row gap-5">
 							<Button size={"2xl"}>More about me </Button>
 							<Button size={"2xl"} variant={"secondary"} asChild>

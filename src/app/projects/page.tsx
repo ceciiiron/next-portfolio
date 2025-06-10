@@ -10,12 +10,13 @@ export default function Home() {
 					<p className="inline-block mb-4  border px-6 py-2 rounded-md bg-white shadow-xs">Built with love and passion ✨</p>
 				</div>
 
-				<h1 className="text-5xl font-extrabold leading-tight">
+				<h1 className="text-6xl font-extrabold leading-tight">
 					{" "}
-					<span className="bg-gradient-to-r from-black via-gray-600 to-white bg-[length:200%_auto] bg-clip-text text-transparent [animation:gradient-shine_3s_ease_infinite]">
-						Latest Projects
-					</span>
+					<span className="">Projects</span>
 				</h1>
+				<p className="text-gray-400 text-4xl font-bold">
+					Turning complex problems <br /> into simple intuitive solutions <br /> that serve real people.
+				</p>
 			</div>
 
 			<Section>
