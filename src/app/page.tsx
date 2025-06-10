@@ -48,7 +48,7 @@ interface LandingPageProjectCardProps {
 	className?: string;
 }
 
-export const LandingPageProjectCard: React.FC<LandingPageProjectCardProps> = ({ title, description, imageSrc, imageAlt = "Project thumbnail", className = "" }) => {
+const LandingPageProjectCard: React.FC<LandingPageProjectCardProps> = ({ title, description, imageSrc, imageAlt = "Project thumbnail", className = "" }) => {
 	return (
 		<Card className={`relative p-0 overflow-hidden gap-0 h-80  ${className}`}>
 			<div className="px-0 overflow-hidden">
