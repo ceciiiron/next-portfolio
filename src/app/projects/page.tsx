@@ -6,7 +6,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbS
 export default function page() {
 	return (
 		<>
-			<div className="max-w-6xl mx-auto relative mt-[7rem]">
+			<div className="">
 				<Breadcrumb>
 					<BreadcrumbList>
 						<BreadcrumbItem>

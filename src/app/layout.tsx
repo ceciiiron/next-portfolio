@@ -39,7 +39,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-			<body className={`antialiased ${figTree.variable}`}>
+			<body className={`antialiased ${figTree.variable} max-w-5xl mx-auto mt-[7rem]`}>
 				<Navbar />
 				{children}
 				<Section>

@@ -27,7 +27,7 @@ const Navbar = () => {
 		// 	transition={{ duration: 0.5 }}
 		<nav
 			className={`py-5 flex justify-between  rounded-xl fixed w-full mx-auto inset-x-0 top-8  z-50 transition-all duration-300 ${
-				isScrolled ? "max-w-4xl shadow px-8 backdrop-blur-lg bg-white/70 " : "max-w-6xl "
+				isScrolled ? "max-w-4xl shadow px-8 backdrop-blur-lg bg-white/70 " : "max-w-5xl "
 			}`}>
 			<div className=" ">
 				<h1 className="font-extrabold text-lg">
