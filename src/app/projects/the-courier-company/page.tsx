@@ -4,6 +4,7 @@ import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbS
 import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { TechStackGroup } from "@/components/tech-stack/TechStackGroup";
 
 export default function page() {
 	return (
@@ -23,11 +24,12 @@ export default function page() {
 			</Breadcrumb>
 
 			<div className="mt-[4rem]">
-				<div className="flex flex-col justify-center gap-2 col-span-2">
-					<h1 className="text-4xl font-extrabold leading-tight">
+				<div className="flex flex-col justify-center gap-2">
+					<h1 className="text-4xl font-bold ">
 						<span className="">The Courier Company</span>
 					</h1>
-					<p className="text-gray-400 text-2xl font-bold">Courier management information system</p>
+					<p className="text-gray-400 text-2xl font-semibold">Courier management information system</p>
+					<TechStackGroup badges={["MySQL", "Codeigniter", "PHP"]} />
 				</div>
 
 				<Section>

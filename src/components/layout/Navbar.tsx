@@ -34,7 +34,7 @@ const Navbar = () => {
 					<Link
 						href={"/"}
 						className="bg-gradient-to-br  border-[#111] from-[#111] via-[#444] to-[#777] bg-[length:200%_auto] bg-clip-text text-transparent [animation:gradient-shine_3s_ease_infinite] ">
-						Ceciron.dev
+						CC
 					</Link>
 				</h1>
 			</div>
