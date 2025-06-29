@@ -137,7 +137,7 @@ function CarouselItem({ className, ...props }: React.ComponentProps<"div">) {
 	);
 }
 
-function CarouselPrevious({ className, variant = "outline", size = "icon", ...props }: React.ComponentProps<typeof Button>) {
+function CarouselPrevious({ className, variant = "secondary", size = "icon", ...props }: React.ComponentProps<typeof Button>) {
 	const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
 	return (
@@ -146,7 +146,7 @@ function CarouselPrevious({ className, variant = "outline", size = "icon", ...pr
 			variant={variant}
 			size={size}
 			className={cn(
-				"absolute size-8 rounded-full",
+				"absolute size-8  rounded-full  z-50",
 				orientation === "horizontal" ? "top-1/2 -left-12 -translate-y-1/2" : "-top-12 left-1/2 -translate-x-1/2 rotate-90",
 				className
 			)}
@@ -159,7 +159,7 @@ function CarouselPrevious({ className, variant = "outline", size = "icon", ...pr
 	);
 }
 
-function CarouselNext({ className, variant = "outline", size = "icon", ...props }: React.ComponentProps<typeof Button>) {
+function CarouselNext({ className, variant = "secondary", size = "icon", ...props }: React.ComponentProps<typeof Button>) {
 	const { orientation, scrollNext, canScrollNext } = useCarousel();
 
 	return (

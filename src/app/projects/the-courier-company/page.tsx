@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
 import { TechStackGroup } from "@/components/tech-stack/TechStackGroup";
+import { cn } from "@/lib/utils";
 
 export default function page() {
 	return (
@@ -63,41 +64,41 @@ export default function page() {
 								</ul>
 
 								<div className="flex flex-col items-center gap-4">
-									<Carousel className="max-w-3xl">
-										<CarouselContent className="h-96">
-											<CarouselItem className="flex flex-col justify-center items-center align-center">
+									<Carousel className="max-w-3xl pl-10">
+										<CarouselContent className="h-96 ">
+											<CarouselItem className="flex ml-10 flex-col justify-center items-center align-center border  basis-1/2">
 												<Image
 													src={"/assets/images/projects/tcc/customer/1.png"}
 													width={800}
 													height={800}
-													className="object-contain h-96 overflow-hidden"
+													className={cn("", "ml-0", "object-contain h-96 overflow-hidden")}
 													alt="csr-dashboard"
 												/>
 											</CarouselItem>
-											<CarouselItem className="flex flex-col justify-center items-center align-center">
+											<CarouselItem className="flex border flex-col justify-center items-center align-center basis-1/2">
 												<Image
 													src={"/assets/images/projects/tcc/customer/2.png"}
 													width={800}
 													height={800}
-													className="object-contain h-96"
+													className={cn("", "object-contain h-96 overflow-hidden")}
 													alt="csr-dashboard"
 												/>
 											</CarouselItem>
-											<CarouselItem className="flex flex-col justify-center items-center align-center">
+											<CarouselItem className="flex flex-col justify-center items-center align-center basis-1/2">
 												<Image
 													src={"/assets/images/projects/tcc/customer/3.png"}
 													width={800}
 													height={800}
-													className="object-contain h-96"
+													className={cn("", "object-contain h-96 overflow-hidden")}
 													alt="csr-dashboard"
 												/>
 											</CarouselItem>
-											<CarouselItem className="flex flex-col justify-center items-center align-center">
+											<CarouselItem className="flex flex-col justify-center items-center align-center basis-1/2">
 												<Image
 													src={"/assets/images/projects/tcc/customer/4.png"}
 													width={800}
 													height={800}
-													className="object-contain h-96"
+													className={cn("", "object-contain h-96 overflow-hidden")}
 													alt="csr-dashboard"
 												/>
 											</CarouselItem>

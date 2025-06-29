@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Figtree } from "next/font/google";
+import { Figtree, Cormorant_Garamond } from "next/font/google";
 import "./globals.css";
 import Navbar from "../components/layout/Navbar";
 import { Section } from "@/components/ui/section";
@@ -26,6 +26,12 @@ const figTree = Figtree({
 	subsets: ["latin"],
 });
 
+const cormorantGaramond = Cormorant_Garamond({
+	variable: "--font-cormorant-garamond",
+	weight: ["300", "400", "500", "600", "700"],
+	subsets: ["latin"],
+});
+
 export const metadata: Metadata = {
 	title: "Ceciron Alejo III",
 	description: "Ceciron Alejo III's Portfolio",
@@ -39,7 +45,9 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-			<body className={`antialiased ${figTree.variable} max-w-5xl mx-auto mt-[7rem]`}>
+			{/* <body className={`antialiased ${figTree.variable} max-w-5xl mx-auto mt-[7rem]`}> */}
+
+			<body className={`antialiased ${figTree.variable} ${cormorantGaramond.variable} mt-[7rem]`}>
 				<Navbar />
 				{children}
 				<Section>

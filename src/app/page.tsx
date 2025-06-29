@@ -8,6 +8,8 @@ import React from "react";
 import { Section } from "@/components/ui/section";
 import { motion } from "motion/react";
 import { TechStackGroup } from "@/components/tech-stack/TechStackGroup";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { cn } from "@/lib/utils";
 
 interface LandingPageProjectCardProps {
 	title: string;
@@ -20,33 +22,66 @@ interface LandingPageProjectCardProps {
 const LandingPageProjectCard: React.FC<LandingPageProjectCardProps> = ({ title, description, imageSrc, imageAlt = "Project thumbnail", className = "" }) => {
 	return (
 		<motion.div initial={{ opacity: 0, y: 15, filter: "blur(10px)" }} whileInView={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }} transition={{ duration: 0.5 }}>
-			<Card className={` p-0  gap-0   ${className} overflow-hidden  group cursor-pointer`}>
-				<div className=" overflow-hidden group relative w-full ">
+			<Card className={` p-0  gap-0  h-52 lg:h-72  ${className} overflow-hidden group cursor-pointer bg-none border rounded-md`}>
+				<div className=" overflow-hidden group relative w-full">
 					<Image
 						src={imageSrc}
 						width={500}
 						height={500}
-						className={`  h-80 object-fit object-center w-full  transition-transform  group-hover:scale-110  scale-105 `}
+						className={` h-52 lg:h-72 object-fit  object-center w-full  transition-transform   lg:scale-105 `}
 						alt={imageAlt}
 					/>
 				</div>
-
-				<CardHeader className="w-full py-6 z-10">
-					<CardTitle className="text-lg">{title}</CardTitle>
-					{description && <CardDescription>{description}</CardDescription>}
-				</CardHeader>
 			</Card>
+			<div className=" py-6">
+				<p className="text-lg ">{title}</p>
+				{description && <CardDescription>{description}</CardDescription>}
+			</div>
 		</motion.div>
 	);
 };
 
+const projects: {
+	title: string;
+	description: string;
+	imageSrc: string;
+}[] = [
+	{
+		title: "BRHMC Queuing System",
+		description: "Hospital Electronic Queuing System",
+		imageSrc: "/assets/images/projects/qs/mockup.png",
+	},
+	{
+		title: "HIS-RIS Integration",
+		description: "Radiology Information System",
+		imageSrc: "/assets/images/projects/brhmc-ris/mockup.png",
+	},
+	{
+		title: "BUCS-RDMS",
+		description: "School Research Document and Management System",
+		imageSrc: "/assets/images/projects/bucsrdms/mockup.png",
+	},
+	{
+		title: "Ellis Ecotel",
+		description: "Hotel Content Management System",
+		imageSrc: "/assets/images/projects/ellis-ecotel/mockup.png",
+	},
+	{
+		title: "One Banwaan",
+		description: "Interconnected Barangay Information System",
+		imageSrc: "/assets/images/projects/ellis-ecotel/mockup.png",
+	},
+];
+
 export default function Home() {
 	return (
-		<div className="max-w-6xl mx-auto relative mt-[9rem]">
-			<div className="mb-[12rem] border p-10 rounded-lg shadow-lg mx-10 lg:mx-0 bg-white">
+		// <div className="max-w-6xl mx-auto relative mt-[9rem]">
+
+		<div className="relative mt-[9rem]">
+			<div className="mb-[12rem]  p-10  mx-10 lg:mx-0 bg-white">
 				{/* <div className="grid grid-cols-3 gap-40 "> */}
 				{/* <h2 className="text-6xl font-extrabold leading-tight">Let&apos;s Build Something</h2> */}
-				<div className="text-center mb-10 ">
+				<div className="text-left mb-10 font-(family-name:--font-cormorant-garamond)">
 					<motion.div
 						initial={{ opacity: 0, y: 15, filter: "blur(5px)" }}
 						whileInView={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
@@ -54,21 +89,22 @@ export default function Home() {
 						className="flex flex-col space-y-10">
 						<div>
 							<p className="   border px-6 py-2 inline-block rounded-md bg-white shadow-xs">Ceciron is available for work &nbsp; 👋</p>
-							<h2 className="md:text-4xl text-5xl font-semibold mb-4">
+							<h2 className="md:text-7xl  font-semibold mb-4">
 								<br />A Fullstack Developer building
 							</h2>
-							<h2 className="md:text-7xl lg:text-8xl font-extrabold  ">
-								<span className="bg-[linear-gradient(90deg,_#11998e,_#31c487,_#4be38a,_#38ef7d)] bg-clip-text text-transparent animate-[gradientShift_6s_ease-in-out_infinite] bg-[length:400%_400%]">
+							<h2 className="md:text-7xl  font-extrabold  ">
+								{/* <span className="bg-[linear-gradient(90deg,_#11998e,_#31c487,_#4be38a,_#38ef7d)] bg-clip-text text-transparent animate-[gradientShift_2s_ease-in-out_infinite] bg-[length:400%_400%]">
 									clean,
-								</span>
+								</span> */}
+								<span className="">clean,</span>
 								&nbsp;
-								<span className="bg-[linear-gradient(90deg,_#8e2de2,_#7a42f4,_#643eea,_#4a00e0)] bg-clip-text text-transparent animate-[gradientShift_6s_ease-in-out_infinite] bg-[length:400%_400%]">
+								<span className="bg-[linear-gradient(90deg,_#8e2de2,_#7a42f4,_#643eea,_#4a00e0)] bg-clip-text text-transparent animate-[gradientShift_2s_ease-in-out_infinite] bg-[length:400%_400%]">
 									scalable,
 								</span>
 								<span>
 									&nbsp;and <br />
 								</span>
-								<span className="bg-[linear-gradient(90deg,_#ff512f,_#ff5e7e,_#ec4899,_#dd2476)] bg-clip-text text-transparent animate-[gradientShift_6s_ease-in-out_infinite] bg-[length:400%_400%]">
+								<span className="bg-[linear-gradient(90deg,_#ff512f,_#ff5e7e,_#ec4899,_#dd2476)] bg-clip-text text-transparent animate-[gradientShift_2s_ease-in-out_infinite] bg-[length:400%_400%]">
 									intuituve software
 								</span>
 							</h2>
@@ -143,42 +179,68 @@ export default function Home() {
 			</div>
 
 			<Section>
-				<div className="text-center">
-					<p className="inline-block mb-4 border px-6 py-2 rounded-md bg-white shadow-xs">Built with love and passion ✨</p>
+				<div className="mx-4 lg:ml-52 flex flex-col relative">
+					<div
+						className="absolute inset-0 -z-10 -left-56 pointer-events-none"
+						style={{
+							backgroundImage: `
+        radial-gradient(at 20% 30%, rgba(168, 85, 247, 0.3), transparent 50%),
+        radial-gradient(at 80% 20%, rgba(236, 72, 153, 0.25), transparent 50%),
+        radial-gradient(at 60% 80%, rgba(79, 70, 229, 0.2), transparent 50%)
+      `,
+							filter: "blur(60px)",
+							backgroundBlendMode: "lighten",
+						}}
+					/>
 
-					<h2 className="text-4xl font-bold text-center dark:text-gruvbox-light text-gruvbox-dark">Latest Projects</h2>
+					<div>
+						<p className="inline-block mb-4">Built with love and passion ✨</p>
+					</div>
+
+					<h2 className="text-5xl font-extrabold mb-8 dark:text-gruvbox-light text-gruvbox-dark font-(family-name:--font-cormorant-garamond)">
+						Turning complex problems <br /> into simple intuitive solutions <br /> that serve real people.
+					</h2>
+					<div>
+						<Button size={"2xl"}>View Projects</Button>
+					</div>
 				</div>
 
-				<div className=" grid sm:grid-cols-1  xl:grid-cols-2 sm:gap-10 xl:gap-20 ">
-					<LandingPageProjectCard title="BRHMC Queuing System" description="Hospital Electronic Queuing System" imageSrc="/assets/images/projects/qs/mockup.png" />
+				<Carousel>
+					<CarouselContent className="">
+						{projects.map((project, index) => (
+							<CarouselItem key={index} className={cn(" basis-[46%] lg:basis-[26%]", index == 0 && "ml-4 lg:ml-52")}>
+								<div className="p-1">
+									<LandingPageProjectCard title={project.title} description={project.description} imageSrc={project.imageSrc} />
+								</div>
+							</CarouselItem>
+						))}
+						<CarouselItem className="basis-[46%] lg:basis-[26%] mr-52">
+							<motion.div
+								initial={{ opacity: 0, y: 15, filter: "blur(10px)" }}
+								whileInView={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
+								transition={{ duration: 0.5 }}
+								className="p-1">
+								<div className=" h-52 lg:h-72 overflow-hidden group relative  flex justify-center items-center text-lg border rounded-md bg-white">
+									Browse more projects
+								</div>
+							</motion.div>
+						</CarouselItem>
+					</CarouselContent>
+					<CarouselPrevious className="top-1/2 left-12 translate-y-1/2" />
+					<CarouselNext className=" top-1/2 right-12 translate-y-1/2" />
+				</Carousel>
 
-					<LandingPageProjectCard
-						title="BUCS-RDMS"
-						description="School Research Document and Management System"
-						imageSrc="/assets/images/projects/bucsrdms/mockup.png"
-						className=" "
-					/>
-
-					<LandingPageProjectCard
-						title="HIS-RIS Integration"
-						description="Radiology Information System"
-						imageSrc="/assets/images/projects/brhmc-ris/mockup.png"
-						className=" "
-					/>
-
-					<LandingPageProjectCard
-						title="Ellis Ecotel"
-						description="Hotel Content Management System"
-						imageSrc="/assets/images/projects/ellis-ecotel/mockup.png"
-						className=""
-					/>
+				{/* <div className=" grid sm:grid-cols-1  xl:grid-cols-2 sm:gap-10 xl:gap-20 ">
+					{projects.map((project, index) => (
+						<LandingPageProjectCard key={index} title={project.title} description={project.description} imageSrc={project.imageSrc} />
+					))}
 
 					<div className="flex justify-center col-span-2 ">
 						<Button size={"2xl"} asChild>
 							<Link href={"/projects"}>Show more projects</Link>
 						</Button>
 					</div>
-				</div>
+				</div> */}
 			</Section>
 
 			<Section>
