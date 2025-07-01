@@ -47,7 +47,7 @@ export default function RootLayout({
 			<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			{/* <body className={`antialiased ${figTree.variable} max-w-5xl mx-auto mt-[7rem]`}> */}
 
-			<body className={`antialiased ${figTree.variable} ${cormorantGaramond.variable} mt-[7rem]`}>
+			<body className={`antialiased ${figTree.variable} ${cormorantGaramond.variable}  `}>
 				<Navbar />
 				{children}
 				<Section>

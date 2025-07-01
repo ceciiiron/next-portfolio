@@ -26,8 +26,8 @@ const Navbar = () => {
 		// 	animate={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
 		// 	transition={{ duration: 0.5 }}
 		<nav
-			className={`py-5 flex justify-between  rounded-xl fixed w-full mx-auto inset-x-0 top-8  z-50 transition-all duration-300 ${
-				isScrolled ? "max-w-4xl shadow px-8 backdrop-blur-lg bg-white/70 " : "max-w-5xl "
+			className={`py-5 flex justify-between  rounded-md  fixed w-full mx-auto inset-x-0 top-8  z-50 transition-all duration-300 ${
+				isScrolled ? "max-w-5xl shadow-md px-8 backdrop-blur-lg bg-white/70 " : "max-w-5xl "
 			}`}>
 			<div className=" ">
 				<h1 className="font-extrabold text-lg">

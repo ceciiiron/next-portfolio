@@ -1,5 +1,7 @@
-const Section = ({ children }: { children: React.ReactNode }) => {
-	return <div className=" my-24 flex flex-col gap-10">{children}</div>;
+import { cn } from "@/lib/utils";
+
+const Section = ({ children, className }: { children: React.ReactNode; className?: string }) => {
+	return <div className={cn("max-w-5xl my-24 mx-auto flex flex-col gap-10", className)}>{children}</div>;
 };
 
 const SectionTitle = ({ children }: { children: React.ReactNode }) => {
