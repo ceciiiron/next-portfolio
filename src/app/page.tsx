@@ -77,8 +77,8 @@ export default function Home() {
 	return (
 		// <div className="max-w-6xl mx-auto relative mt-[9rem]">
 
-		<div className=" mt-[12rem] ">
-			<Section className="mb-[12rem]   ">
+		<div className=" mt-[8rem] ">
+			<Section className="   ">
 				<div
 					className="absolute inset-x-0 mx-auto -z-10  pointer-events-none max-w-4xl  h-56 top-0"
 					style={{
@@ -100,7 +100,7 @@ export default function Home() {
 						className="flex flex-col ">
 						<div className="text-center">
 							<p className=" inline-block px-6 py-2 shadow-sm bg-white border rounded-md mb-6">Ceciron is available for work &nbsp; 👋</p>
-							<h2 className="md:text-7xl  font-semibold mb-6">
+							<h2 className="md:text-6xl  font-bold  leading-18 mb-6">
 								A Fullstack Developer <br /> building clean, scalable, <br /> & intuitive software
 							</h2>
 							{/* <h2 className="md:text-7xl  font-extrabold  ">
@@ -149,7 +149,7 @@ export default function Home() {
 					<div className="col-span-3 h-64 overflow-hidden relative flex flex-row gap-4 items-stretch">
 						{/* <div className="absolute bottom-0 left-0 w-full   h-36  bg-gradient-to-t from-white hover:via-white to-transparent pointer-events-none" /> */}
 						<div className="w-full">
-							<h3 className="text-4xl font-semibold mb-2">Skills</h3>
+							<h3 className="text-4xl font-bold mb-2">Skills</h3>
 							<p className=" text-gray-500 mb-4">Applied Expertise</p>
 							<Button variant={"default"}>View All</Button>
 						</div>
@@ -201,10 +201,44 @@ export default function Home() {
 						{/* Turning complex problems into practical solutions that serve real people. */}
 					</div>
 					{/* 05 */}
-					<div className="col-span-2 row-span-2">
-						<h3 className="text-4xl font-semibold mb-2">Projects</h3>
-						<p className=" text-gray-500 mb-4">Built with love and passion</p>
-						<Button variant={"default"}>Browse All</Button>
+					<div className="col-span-2 row-span-2 relative  flex flex-col overflow-hidden">
+						<div>
+							<h3 className="text-4xl font-bold mb-2"> Projects</h3>
+							<p className=" text-gray-500 mb-4">Built with love and passion</p>
+							<Button variant={"default"}>Browse All</Button>
+						</div>
+
+						<div className="relative -right-42 top-6  h-full">
+							<div className="absolute w-full  -right-28  -top-20 scale-120 z-10">
+								<Image
+									src={"/assets/images/projects/brhmc-ris/mockup_laptop.png"}
+									width={500}
+									height={500}
+									className={` h-64  object-contain object-center w-full  transition-transform   `}
+									alt={"Project Mockup"}
+								/>
+							</div>
+
+							<div className="absolute w-full  -right-14 right -top-4 scale-120  z-20 ">
+								<Image
+									src={"/assets/images/projects/bucsrdms/mockup_laptop.png"}
+									width={500}
+									height={500}
+									className={` h-64  object-contain object-center w-full  transition-transform   `}
+									alt={"Project Mockup"}
+								/>
+							</div>
+
+							<div className="absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-120 z-30 ">
+								<Image
+									src={"/assets/images/projects/qs/mockup_laptop.png"}
+									width={500}
+									height={500}
+									className={` h-64 object-contain object-center w-full  transition-transform   `}
+									alt={"Project Mockup"}
+								/>
+							</div>
+						</div>
 					</div>
 					<div className="">04.1</div>
 
