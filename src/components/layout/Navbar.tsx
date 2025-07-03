@@ -1,5 +1,6 @@
 "use client";
 
+import { cn } from "@/lib/utils";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 
@@ -26,9 +27,10 @@ const Navbar = () => {
 		// 	animate={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
 		// 	transition={{ duration: 0.5 }}
 		<nav
-			className={`py-5 flex justify-between  rounded-md  fixed w-full mx-auto inset-x-0 top-8  z-50 transition-all duration-300 ${
-				isScrolled ? "max-w-5xl shadow-md px-8 backdrop-blur-md bg-white/70 " : "max-w-5xl "
-			}`}>
+			className={cn(
+				`px-5 py-5 md:px-5 lg:px-0  md:py-5 flex justify-between  md:rounded-md  fixed w-full mx-auto inset-x-0 top-0 md:top-8  z-50 transition-all duration-300 md:max-w-2xl lg:max-w-5xl`,
+				isScrolled && " shadow-md lg:px-8 backdrop-blur-md bg-white/70 "
+			)}>
 			<div className=" ">
 				<h1 className="font-extrabold text-lg">
 					<Link
@@ -39,7 +41,8 @@ const Navbar = () => {
 				</h1>
 			</div>
 
-			<ul className="hidden md:flex items-center gap-8 text-sm font-semibold cursor-pointer dark:text-gruvbox-light/80 transition-all">
+			{/* hidden md:flex */}
+			<ul className="flex items-center gap-8 text-sm font-semibold cursor-pointer dark:text-gruvbox-light/80 transition-all">
 				<li className="hover:text-gruvbox-light transition-all">
 					<Link href={"/projects"}>Projects</Link>
 				</li>

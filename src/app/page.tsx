@@ -1,77 +1,119 @@
 "use client";
 import Link from "next/link";
 import Image from "next/image";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+// import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { IconBrandGithub, IconBrandLinkedin } from "@tabler/icons-react";
-import React from "react";
+import React, { useRef, useEffect } from "react";
 import { Section } from "@/components/ui/section";
 import { motion } from "motion/react";
 import { TechStackGroup } from "@/components/tech-stack/TechStackGroup";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { cn } from "@/lib/utils";
 
-interface LandingPageProjectCardProps {
-	title: string;
-	description?: string;
-	imageSrc: string;
-	imageAlt?: string;
-	className?: string;
-}
+import createGlobe from "cobe";
 
-const LandingPageProjectCard: React.FC<LandingPageProjectCardProps> = ({ title, description, imageSrc, imageAlt = "Project thumbnail", className = "" }) => {
-	return (
-		<motion.div initial={{ opacity: 0, y: 15, filter: "blur(10px)" }} whileInView={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }} transition={{ duration: 0.5 }}>
-			<Card className={` p-0  gap-0  h-52 lg:h-72  ${className} overflow-hidden group cursor-pointer bg-none border rounded-md`}>
-				<div className=" overflow-hidden group relative w-full">
-					<Image
-						src={imageSrc}
-						width={500}
-						height={500}
-						className={` h-52 lg:h-72 object-fit  object-center w-full  transition-transform   lg:scale-105 `}
-						alt={imageAlt}
-					/>
-				</div>
-			</Card>
-			<div className=" py-6">
-				<p className="text-lg ">{title}</p>
-				{description && <CardDescription>{description}</CardDescription>}
-			</div>
-		</motion.div>
-	);
+const Globe = () => {
+	const canvasRef = useRef(null);
+
+	useEffect(() => {
+		let phi = 0;
+
+		if (!canvasRef.current) return;
+
+		const globe = createGlobe(canvasRef.current, {
+			devicePixelRatio: 2,
+			width: 400 * 2,
+			height: 400 * 2,
+			phi: 10,
+			theta: 0,
+			dark: 0,
+			diffuse: 1.2,
+			mapSamples: 32000,
+			mapBrightness: 4,
+			baseColor: [0.3, 0.3, 0.3],
+			markerColor: [0.1, 0.8, 1],
+			glowColor: [1, 1, 1],
+			markers: [{ location: [13.1129, 123.7629], size: 0.06 }],
+			onRender: (state) => {
+				// Called on every animation frame.
+				// `state` will be an empty object, return updated params.
+				// state.phi = 13.1129;
+				state.phi = phi;
+				phi += 0.01;
+			},
+		});
+
+		return () => {
+			globe.destroy();
+		};
+	}, []);
+
+	return <canvas ref={canvasRef} style={{ width: 600, height: 600, maxWidth: "100%", aspectRatio: 1 }} />;
 };
 
-const projects: {
-	title: string;
-	description: string;
-	imageSrc: string;
-}[] = [
-	{
-		title: "BRHMC Queuing System",
-		description: "Hospital Electronic Queuing System",
-		imageSrc: "/assets/images/projects/qs/mockup.png",
-	},
-	{
-		title: "HIS-RIS Integration",
-		description: "Radiology Information System",
-		imageSrc: "/assets/images/projects/brhmc-ris/mockup.png",
-	},
-	{
-		title: "BUCS-RDMS",
-		description: "School Research Document and Management System",
-		imageSrc: "/assets/images/projects/bucsrdms/mockup.png",
-	},
-	{
-		title: "Ellis Ecotel",
-		description: "Hotel Content Management System",
-		imageSrc: "/assets/images/projects/ellis-ecotel/mockup.png",
-	},
-	{
-		title: "One Banwaan",
-		description: "Interconnected Barangay Information System",
-		imageSrc: "/assets/images/projects/ellis-ecotel/mockup.png",
-	},
-];
+// import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+// import { cn } from "@/lib/utils";
+
+// interface LandingPageProjectCardProps {
+// 	title: string;
+// 	description?: string;
+// 	imageSrc: string;
+// 	imageAlt?: string;
+// 	className?: string;
+// }
+
+// const LandingPageProjectCard: React.FC<LandingPageProjectCardProps> = ({ title, description, imageSrc, imageAlt = "Project thumbnail", className = "" }) => {
+// 	return (
+// 		<motion.div initial={{ opacity: 0, y: 15, filter: "blur(10px)" }} whileInView={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }} transition={{ duration: 0.5 }}>
+// 			<Card className={` p-0  gap-0  h-52 lg:h-72  ${className} overflow-hidden group cursor-pointer bg-none border rounded-md`}>
+// 				<div className=" overflow-hidden group relative w-full">
+// 					<Image
+// 						src={imageSrc}
+// 						width={500}
+// 						height={500}
+// 						className={` h-52 lg:h-72 object-fit  object-center w-full  transition-transform   lg:scale-105 `}
+// 						alt={imageAlt}
+// 					/>
+// 				</div>
+// 			</Card>
+// 			<div className=" py-6">
+// 				<p className="text-lg ">{title}</p>
+// 				{description && <CardDescription>{description}</CardDescription>}
+// 			</div>
+// 		</motion.div>
+// 	);
+// };
+
+// const projects: {
+// 	title: string;
+// 	description: string;
+// 	imageSrc: string;
+// }[] = [
+// 	{
+// 		title: "BRHMC Queuing System",
+// 		description: "Hospital Electronic Queuing System",
+// 		imageSrc: "/assets/images/projects/qs/mockup.png",
+// 	},
+// 	{
+// 		title: "HIS-RIS Integration",
+// 		description: "Radiology Information System",
+// 		imageSrc: "/assets/images/projects/brhmc-ris/mockup.png",
+// 	},
+// 	{
+// 		title: "BUCS-RDMS",
+// 		description: "School Research Document and Management System",
+// 		imageSrc: "/assets/images/projects/bucsrdms/mockup.png",
+// 	},
+// 	{
+// 		title: "Ellis Ecotel",
+// 		description: "Hotel Content Management System",
+// 		imageSrc: "/assets/images/projects/ellis-ecotel/mockup.png",
+// 	},
+// 	{
+// 		title: "One Banwaan",
+// 		description: "Interconnected Barangay Information System",
+// 		imageSrc: "/assets/images/projects/ellis-ecotel/mockup.png",
+// 	},
+// ];
 
 export default function Home() {
 	return (
@@ -92,18 +134,17 @@ export default function Home() {
 					}}
 				/>
 
-				<div className="text-left  ">
-					<motion.div
-						initial={{ opacity: 0, y: 15, filter: "blur(5px)" }}
-						whileInView={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
-						transition={{ duration: 0.5 }}
-						className="flex flex-col ">
-						<div className="text-center">
-							<p className=" inline-block px-6 py-2 shadow-sm bg-white border rounded-md mb-6">Ceciron is available for work &nbsp; 👋</p>
-							<h2 className="md:text-6xl  font-bold  leading-18 mb-6">
-								A Fullstack Developer <br /> building clean, scalable, <br /> & intuitive software
-							</h2>
-							{/* <h2 className="md:text-7xl  font-extrabold  ">
+				<motion.div
+					initial={{ opacity: 0, y: 15, filter: "blur(5px)" }}
+					whileInView={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
+					transition={{ duration: 0.5 }}
+					className="flex flex-col">
+					<div className="text-center">
+						<p className="text-sm md:text-base inline-block px-6 py-2 shadow-sm bg-white border rounded-md mb-6">Ceciron is available for work &nbsp; 👋</p>
+						<h2 className="text-3xl md:text-6xl  font-bold  md:leading-18 mb-6">
+							A Fullstack Developer <br /> building clean, scalable, <br /> & intuitive software
+						</h2>
+						{/* <h2 className="md:text-7xl  font-extrabold  ">
 								<span className="bg-[linear-gradient(90deg,_#11998e,_#31c487,_#4be38a,_#38ef7d)] bg-clip-text text-transparent animate-[gradientShift_2s_ease-in-out_infinite] bg-[length:400%_400%]">
 									clean,
 								</span>
@@ -119,9 +160,8 @@ export default function Home() {
 									intuituve software
 								</span>
 							</h2> */}
-						</div>
-					</motion.div>
-				</div>
+					</div>
+				</motion.div>
 
 				<motion.div
 					initial={{ opacity: 0, y: 15, filter: "blur(5px)" }}
@@ -132,21 +172,24 @@ export default function Home() {
 
 					<Button size={"2xl"} variant={"secondary"} asChild>
 						<Link href="https://github.com/ceciiiron" target="_blank">
-							<IconBrandGithub size={20} /> GitHub
+							<IconBrandGithub size={20} />
+							<span className="hidden md:flex">GitHub</span>
 						</Link>
 					</Button>
 					<Button size={"2xl"} variant={"secondary"} asChild>
 						<Link href="https://github.com/ceciiiron" target="_blank">
-							<IconBrandLinkedin size={25} /> LinkedIn
+							<IconBrandLinkedin size={25} />
+
+							<span className="hidden md:flex">LinkedIn</span>
 						</Link>
 					</Button>
 				</motion.div>
 			</Section>
 
 			<Section>
-				<div className="grid grid-cols-4 grid-rows-3 *:border *:rounded-sm *:px-6 *:py-5 gap-6 *:bg-white *:shadow-sm ">
-					{/* 01 */}
-					<div className="col-span-3 h-64 overflow-hidden relative flex flex-row gap-4 items-stretch">
+				<div className="grid grid-cols-1 grid-rows-7 lg:grid-cols-4 lg:grid-rows-3 *:border *:rounded-sm *:px-6 *:py-5 gap-6 *:bg-white *:shadow-sm *:overflow-hidden">
+					{/* 1 */}
+					<div className="row-start-1 col-span-1 lg:col-span-3 h-64 overflow-hidden relative flex flex-row gap-4 items-stretch">
 						{/* <div className="absolute bottom-0 left-0 w-full   h-36  bg-gradient-to-t from-white hover:via-white to-transparent pointer-events-none" /> */}
 						<div className="w-full">
 							<h3 className="text-4xl font-bold mb-2">Skills</h3>
@@ -191,17 +234,18 @@ export default function Home() {
 						</div>
 					</div>
 					{/* 2 */}
-					<div className="row-span-2">
+					<div className="row-start-2 lg:row-span-2 lg:col-span-1 lg:row-start-1 overflow-hidden relative">
 						<h3 className="text-2xl font-semibold mb-2 text-gray-400">Always focused on creating meaningful impact through code.</h3>
+						<div className="absolute top-24 left-0">
+							<Globe />
+						</div>
 					</div>
 					{/* 3 */}
-					<div className="text-right" style={{ backgroundImage: "radial-gradient(#999 5%, transparent 0)", backgroundSize: "20px 20px" }}>
+					<div className="text-right col-span-1 lg:row-start-2" style={{ backgroundImage: "radial-gradient(#999 5%, transparent 0)", backgroundSize: "20px 20px" }}>
 						<h3 className="text-2xl font-semibold mb-2 text-gray-400">Turning complex problems into practical solutions that serve real people.</h3>
-
-						{/* Turning complex problems into practical solutions that serve real people. */}
 					</div>
-					{/* 05 */}
-					<div className="col-span-2 row-span-2 relative  flex flex-col overflow-hidden">
+					{/* 4 */}
+					<div className="lg:col-span-2 lg:row-span-2 relative  flex flex-col overflow-hidden">
 						<div>
 							<h3 className="text-4xl font-bold mb-2"> Projects</h3>
 							<p className=" text-gray-500 mb-4">Built with love and passion</p>
@@ -240,9 +284,11 @@ export default function Home() {
 							</div>
 						</div>
 					</div>
+					{/* 5 */}
 					<div className="">04.1</div>
 
-					{/* <div className="row-span-1">06</div> */}
+					{/* 6 */}
+
 					<div className="col-span-1">07</div>
 				</div>
 			</Section>
