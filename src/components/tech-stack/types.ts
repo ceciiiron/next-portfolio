@@ -9,7 +9,7 @@ export interface TechStackBadgeProps {
 	SVGIcon?: React.ReactElement;
 	className?: string;
 	size?: TechStackSize;
-	withLabel: boolean;
+	withLabel?: boolean;
 }
 
 export interface TechStackGroupProps {
@@ -17,5 +17,5 @@ export interface TechStackGroupProps {
 	badges: TechnologyName[];
 	className?: string;
 	size?: TechStackSize;
-	withLabel: boolean;
+	withLabel?: boolean;
 }
