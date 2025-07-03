@@ -21,9 +21,9 @@ const Globe = () => {
 
 		const globe = createGlobe(canvasRef.current, {
 			devicePixelRatio: 2,
-			width: 400 * 2,
-			height: 400 * 2,
-			phi: 10,
+			width: 500 * 2,
+			height: 500 * 2,
+			phi: 0,
 			theta: 0,
 			dark: 0,
 			diffuse: 1.2,
@@ -38,7 +38,7 @@ const Globe = () => {
 				// `state` will be an empty object, return updated params.
 				// state.phi = 13.1129;
 				state.phi = phi;
-				phi += 0.01;
+				phi += 0.005;
 			},
 		});
 
@@ -47,7 +47,7 @@ const Globe = () => {
 		};
 	}, []);
 
-	return <canvas ref={canvasRef} style={{ width: 600, height: 600, maxWidth: "100%", aspectRatio: 1 }} />;
+	return <canvas ref={canvasRef} style={{ width: "500px", height: "500px", scale: 1 }} />;
 };
 
 // import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
@@ -174,14 +174,14 @@ export default function Home() {
 			</Section>
 
 			<Section>
-				<div className="grid h-full grid-cols-1 grid-rows-7 lg:grid-cols-4 lg:grid-rows-3 *:border *:rounded-sm *:px-6 *:py-5 gap-6 *:bg-white *:shadow-sm *:overflow-hidden z-10 ">
+				<div className="grid h-full grid-cols-1 grid-rows-7 lg:grid-cols-4 lg:grid-rows-3 *:border *:rounded-sm *:px-6 *:py-5 gap-6 *:bg-white *:shadow-sm *:overflow-hidden  ">
 					{/* 1 */}
 					<div className="row-start-1 col-span-1 lg:col-span-3 h-64 overflow-hidden relative flex flex-row gap-4 items-stretch">
 						{/* <div className="absolute bottom-0 left-0 w-full   h-36  bg-gradient-to-t from-white hover:via-white to-transparent pointer-events-none" /> */}
 						<div className="w-full">
 							<h3 className="text-4xl font-bold mb-2">Skills</h3>
 							<p className=" text-gray-500 mb-4">Applied Expertise</p>
-							<Button variant={"default"}>View All</Button>
+							<Button variant={"default"}>View all</Button>
 						</div>
 
 						<div className="relative  flex flex-col justify-center text-gray-400">
@@ -221,11 +221,61 @@ export default function Home() {
 						</div>
 					</div>
 					{/* 2 */}
-					<div className="row-start-2 lg:row-span-2 lg:col-span-1 lg:row-start-1 overflow-hidden relative">
-						<h3 className="text-2xl font-semibold mb-2 text-gray-400">Always focused on creating meaningful impact through code.</h3>
-						<div className="absolute top-24 left-0">
-							<Globe />
+					<div className="row-start-2 lg:row-span-2 lg:col-span-1 lg:row-start-1 overflow-hidden ">
+						<h3 className="text-2xl font-semibold mb-2 ">
+							{/* text-gray-400 */}
+							{/* 							
+							Always focused on creating meaningful impact through code. */}
+							Experiences
+						</h3>
+
+						<p className=" text-gray-500 mb-4">Professional Journey</p>
+
+						<div className="relative flex flex-col gap-8 pl-4">
+							<div className="absolute left-0 top-4 transform -translate-x-1/2 h-full w-0.5 bg-gray-100 overflow-hidden z-0" />
+
+							<div className="absolute w-3xl -left-10 h-72 -bottom-10 inset-x-0  bg-gradient-to-t from-white to-transparent z-10"></div>
+
+							<div className="absolute bottom-0 left-1/2 transform -translate-x-1/2 z-30">
+								<Button variant={"default"}>See more</Button>
+							</div>
+
+							<div>
+								<div className="absolute left-0 transform -translate-x-1/2 w-4 h-4 rounded-full bg-gray-300  border-2 border-gray-200 animate-pulse shadow-lg" />
+								<p className="text-gray-700 text-xs">2025 Present</p>
+								<p className="text-sm">Computer Programmer III</p>
+
+								<p className="text-gray-400 text-sm">Bicol Regional Hospital and Medical Center</p>
+							</div>
+
+							<div>
+								<div className="absolute left-0 transform -translate-x-1/2 w-4 h-4 rounded-full bg-gray-300 border-2 border-gray-200 shadow-lg" />
+								<p className="text-gray-700 text-xs">2024 August</p>
+								<p className="text-sm">Computer Programmer II</p>
+
+								<p className="text-gray-400 text-sm">Bicol Regional Hospital and Medical Center</p>
+							</div>
+
+							<div>
+								<div className="absolute left-0 transform -translate-x-1/2 w-4 h-4 rounded-full bg-gray-300 border-2 border-gray-200 shadow-lg" />
+								<p className="text-gray-700 text-xs">2023 February</p>
+								<p className="text-sm">Computer Programmer </p>
+
+								<p className="text-gray-400 text-sm">Bicol University College of Science (Computer Science and Information Technology Department)</p>
+							</div>
+
+							<div>
+								<div className="absolute left-0 transform -translate-x-1/2 w-4 h-4 rounded-full bg-gray-300 border-2 border-gray-200 shadow-lg  " />
+								<p className="text-gray-700 text-xs">2018 - 2023 </p>
+								<p className="text-sm">Freelance Programmer </p>
+
+								<p className="text-gray-400 text-sm"></p>
+							</div>
 						</div>
+
+						{/* <div className="absolute top-24 left-0">
+							<Globe />
+						</div> */}
 					</div>
 					{/* 3 */}
 					<div className="text-right col-span-1 lg:row-start-2" style={{ backgroundImage: "radial-gradient(#999 5%, transparent 0)", backgroundSize: "20px 20px" }}>
@@ -238,7 +288,7 @@ export default function Home() {
 							<p className=" text-gray-500 mb-4">Built with love and passion</p>
 
 							<Button variant={"default"} asChild>
-								<Link href={"/projects"}>Browse All</Link>
+								<Link href={"/projects"}>Browse all</Link>
 							</Button>
 						</div>
 
@@ -263,7 +313,7 @@ export default function Home() {
 								/>
 							</div>
 
-							<div className="absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-120 z-30 ">
+							<div className="absolute w-full top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 scale-120 z-20 ">
 								<Image
 									src={"/assets/images/projects/qs/mockup_laptop.png"}
 									width={500}
@@ -275,7 +325,13 @@ export default function Home() {
 						</div>
 					</div>
 					{/* 5 */}
-					<div className="">04.1</div>
+					<div className="relative">
+						<p className=" text-gray-500 mb-4">🇵🇭 PH (GMT+8)</p>
+
+						<div className="absolute ">
+							<Globe />
+						</div>
+					</div>
 
 					{/* 6 */}
 
@@ -369,8 +425,8 @@ export default function Home() {
 					</div>
 				</div>
 			</Section> */}
-
-			{/* <Section>
+			{/* 
+			<Section>
 				<div className="">
 					<p className="inline-block mb-4 border px-6 py-2 rounded-md bg-white shadow-xs">Professional Journey 💼</p>
 					<h2 className="text-4xl font-bold dark:text-gruvbox-light text-gruvbox-dark ">Work Experience</h2>
