@@ -28,7 +28,7 @@ const Navbar = () => {
 		// 	transition={{ duration: 0.5 }}
 		<nav
 			className={cn(
-				`px-5 py-5 md:px-5 lg:px-0  md:py-5 flex justify-between  md:rounded-md  fixed w-full mx-auto inset-x-0 top-0 md:top-8  z-50 transition-all duration-300 md:max-w-2xl lg:max-w-5xl`,
+				`px-5 py-5 md:px-5  md:py-5 flex justify-between  md:rounded-md  fixed w-full mx-auto inset-x-0 top-0 md:top-8  z-50 transition-all duration-300 md:max-w-2xl lg:max-w-5xl`,
 				isScrolled && " shadow-md lg:px-8 backdrop-blur-md bg-white/70 "
 			)}>
 			<div className=" ">

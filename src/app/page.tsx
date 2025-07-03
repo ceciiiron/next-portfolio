@@ -121,19 +121,6 @@ export default function Home() {
 
 		<div className=" mt-[8rem] ">
 			<Section className="   ">
-				<div
-					className="absolute inset-x-0 mx-auto -z-10  pointer-events-none max-w-4xl  h-56 top-0"
-					style={{
-						backgroundImage: `
-        radial-gradient(at 20% 30%, rgba(168, 85, 247, 0.3), transparent 50%),
-        radial-gradient(at 80% 20%, rgba(236, 72, 153, 0.25), transparent 50%),
-        radial-gradient(at 60% 80%, rgba(79, 70, 229, 0.2), transparent 50%)
-      `,
-						filter: "blur(50px)",
-						backgroundBlendMode: "lighten",
-					}}
-				/>
-
 				<motion.div
 					initial={{ opacity: 0, y: 15, filter: "blur(5px)" }}
 					whileInView={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
@@ -187,7 +174,7 @@ export default function Home() {
 			</Section>
 
 			<Section>
-				<div className="grid grid-cols-1 grid-rows-7 lg:grid-cols-4 lg:grid-rows-3 *:border *:rounded-sm *:px-6 *:py-5 gap-6 *:bg-white *:shadow-sm *:overflow-hidden">
+				<div className="grid h-full grid-cols-1 grid-rows-7 lg:grid-cols-4 lg:grid-rows-3 *:border *:rounded-sm *:px-6 *:py-5 gap-6 *:bg-white *:shadow-sm *:overflow-hidden z-10 ">
 					{/* 1 */}
 					<div className="row-start-1 col-span-1 lg:col-span-3 h-64 overflow-hidden relative flex flex-row gap-4 items-stretch">
 						{/* <div className="absolute bottom-0 left-0 w-full   h-36  bg-gradient-to-t from-white hover:via-white to-transparent pointer-events-none" /> */}
@@ -249,7 +236,10 @@ export default function Home() {
 						<div>
 							<h3 className="text-4xl font-bold mb-2"> Projects</h3>
 							<p className=" text-gray-500 mb-4">Built with love and passion</p>
-							<Button variant={"default"}>Browse All</Button>
+
+							<Button variant={"default"} asChild>
+								<Link href={"/projects"}>Browse All</Link>
+							</Button>
 						</div>
 
 						<div className="relative -right-42 top-6  h-full">
@@ -295,18 +285,6 @@ export default function Home() {
 
 			{/* <Section className="">
 				<div className=" flex flex-col relative">
-					<div
-						className="absolute inset-0 -z-10  pointer-events-none w-1/2"
-						style={{
-							backgroundImage: `
-        radial-gradient(at 20% 30%, rgba(168, 85, 247, 0.3), transparent 50%),
-        radial-gradient(at 80% 20%, rgba(236, 72, 153, 0.25), transparent 50%),
-        radial-gradient(at 60% 80%, rgba(79, 70, 229, 0.2), transparent 50%)
-      `,
-							filter: "blur(60px)",
-							backgroundBlendMode: "lighten",
-						}}
-					/>
 
 					<div>
 						<p className=" inline-block mb-6">Built with love and passion ✨</p>
