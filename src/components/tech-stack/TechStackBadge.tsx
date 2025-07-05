@@ -4,7 +4,7 @@ import { TechStackBadgeProps } from "./types";
 import { cn } from "@/lib/utils";
 import { getSizeStyles } from "./utils";
 
-export const TechStackBadge: React.FC<TechStackBadgeProps> = ({ label, SVGIcon, className, size = "md", withLabel = true }) => {
+export const TechStackBadge: React.FC<TechStackBadgeProps> = ({ label, SVGIcon, className, size = "md", withLabel = true, withIcon = true }) => {
 	const icon = SVGIcon || techIcons[label];
 	const styles = getSizeStyles(size);
 
@@ -20,7 +20,7 @@ export const TechStackBadge: React.FC<TechStackBadgeProps> = ({ label, SVGIcon, 
 				styles.container,
 				className
 			)}>
-			<div className={cn(styles.icon)}>{icon}</div>
+			{withIcon && <div className={cn(styles.icon, !withLabel && "p-0  w-1 justify-start align-start ")}>{icon}</div>}
 			{withLabel && <p className={cn("font-medium", styles.text)}>{label}</p>}
 		</span>
 	);

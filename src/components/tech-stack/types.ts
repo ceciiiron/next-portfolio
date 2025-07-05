@@ -4,18 +4,21 @@ export type TechnologyName = keyof typeof techIcons;
 
 export type TechStackSize = "sm" | "md" | "lg";
 
-export interface TechStackBadgeProps {
-	label: TechnologyName;
-	SVGIcon?: React.ReactElement;
+export interface BaseTechStackBadgeProps {
 	className?: string;
 	size?: TechStackSize;
 	withLabel?: boolean;
+	withIcon?: boolean;
 }
 
-export interface TechStackGroupProps {
+export interface TechStackBadgeProps extends BaseTechStackBadgeProps {
+	label: TechnologyName;
+	SVGIcon?: React.ReactElement;
+}
+
+export interface TechStackGroupProps extends BaseTechStackBadgeProps {
 	title?: string;
 	badges: TechnologyName[];
-	className?: string;
-	size?: TechStackSize;
-	withLabel?: boolean;
+	badgesAlign?: string;
+	techStackBadgeClassName?: string;
 }

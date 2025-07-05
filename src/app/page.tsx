@@ -119,8 +119,8 @@ export default function Home() {
 	return (
 		// <div className="max-w-6xl mx-auto relative mt-[9rem]">
 
-		<div className=" mt-[8rem] ">
-			<Section className="   ">
+		<div className="">
+			<Section className="">
 				<motion.div
 					initial={{ opacity: 0, y: 15, filter: "blur(5px)" }}
 					whileInView={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
@@ -191,7 +191,6 @@ export default function Home() {
 								badges={[
 									"Bootstrap",
 									"MaterialUI",
-
 									"MySQL",
 									"PostgreSQL",
 									"TailwindCSS",

@@ -4,7 +4,7 @@ const SVGPHP = (props: SVGProps<SVGSVGElement>) => {
 	return (
 		<svg viewBox="0 0 192.756 192.756" xmlns="http://www.w3.org/2000/svg" height="1.5em" width="1.5em" {...props}>
 			<g clipRule="evenodd" fillRule="evenodd">
-				<path d="m0 0h192.756v192.756h-192.756z" fill="#fff" />
+				<path d="m0 0h192.756v192.756h-192.756z" fill="transparent" />
 				<g>
 					<path
 						d="m96.378 138.287c45.673 0 82.698-18.764 82.698-41.909s-37.025-41.909-82.698-41.909c-45.672 0-82.698 18.764-82.698 41.909s37.026 41.909 82.698 41.909z"

@@ -61,7 +61,7 @@ export default function RootLayout({
 				/>
 
 				<Navbar />
-				{children}
+				<div className=" mt-[5rem] lg:mt-[8rem] ">{children}</div>
 				<Footer />
 			</body>
 		</html>
