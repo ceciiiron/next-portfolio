@@ -42,7 +42,7 @@ const Navbar = () => {
 			</div>
 
 			{/* hidden md:flex */}
-			<ul className="flex items-center gap-8 text-sm font-semibold cursor-pointer dark:text-gruvbox-light/80 transition-all">
+			<ul className="flex items-center gap-8 text-xs md:text-sm font-semibold cursor-pointer dark:text-gruvbox-light/80 transition-all">
 				<li className="hover:text-gruvbox-light transition-all">
 					<Link href={"/projects"}>Projects</Link>
 				</li>
