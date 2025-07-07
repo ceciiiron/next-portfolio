@@ -174,13 +174,15 @@ export default function Home() {
 			</Section>
 
 			<Section>
-				<div className="grid h-full grid-cols-1 grid-rows-7 lg:grid-cols-4 lg:grid-rows-3 *:border *:rounded-sm *:px-6 *:py-5 gap-6 *:bg-white *:shadow-sm *:overflow-hidden  ">
-					{/* 1 */}
-					<div className="row-start-1 col-span-1 lg:col-span-3 h-64 overflow-hidden relative flex flex-row gap-4 items-stretch">
+				<div
+					className="grid  grid-cols-1 grid-rows-6 *:col-span-1 lg:grid-cols-4 lg:grid-rows-3 \
+				 *:border *:rounded-sm *:px-6 *:py-5 gap-6 *:bg-white *:shadow-sm *:overflow-hidden *:h-56  *:sm:h-auto ">
+					{/* 1 Skills */}
+					<div className=" lg:col-span-3 lg:row-start-1 lg:row-span-1  overflow-hidden relative flex flex-row gap-4  ">
 						{/* <div className="absolute bottom-0 left-0 w-full   h-36  bg-gradient-to-t from-white hover:via-white to-transparent pointer-events-none" /> */}
 						<div className="w-full">
-							<h3 className="text-4xl font-bold mb-2">Skills</h3>
-							<p className=" text-gray-500 mb-4">Applied Expertise</p>
+							<h3 className=" text-2xl md:text-4xl font-bold mb-2">Skills</h3>
+							<p className=" text-sm lg:text-base text-gray-500 mb-4">Applied Expertise</p>
 							<Button variant={"default"}>View all</Button>
 						</div>
 
@@ -219,8 +221,8 @@ export default function Home() {
 							/>
 						</div>
 					</div>
-					{/* 2 */}
-					<div className="row-start-2 lg:row-span-2 lg:col-span-1 lg:row-start-1 overflow-hidden ">
+					{/* 2 Experiences */}
+					<div className=" lg:row-span-2  lg:col-span-1 overflow-hidden ">
 						<h3 className="text-2xl font-semibold mb-2 ">
 							{/* text-gray-400 */}
 							{/* 							
@@ -276,12 +278,12 @@ export default function Home() {
 							<Globe />
 						</div> */}
 					</div>
-					{/* 3 */}
-					<div className="text-right col-span-1 lg:row-start-2" style={{ backgroundImage: "radial-gradient(#999 5%, transparent 0)", backgroundSize: "20px 20px" }}>
+					{/* 3 Turning complex probs */}
+					<div className="text-right lg:col-span-1 lg:row-start-2" style={{ backgroundImage: "radial-gradient(#999 5%, transparent 0)", backgroundSize: "20px 20px" }}>
 						<h3 className="text-2xl font-semibold mb-2 text-gray-400">Turning complex problems into practical solutions that serve real people.</h3>
 					</div>
-					{/* 4 */}
-					<div className="lg:col-span-2 lg:row-span-2 relative  flex flex-col overflow-hidden">
+					{/* 4 Projects */}
+					<div className="lg:col-span-2 lg:row-start-2 lg:row-span-2 relative  flex flex-col overflow-hidden">
 						<div>
 							<h3 className="text-4xl font-bold mb-2"> Projects</h3>
 							<p className=" text-gray-500 mb-4">Built with love and passion</p>
@@ -333,8 +335,7 @@ export default function Home() {
 					</div>
 
 					{/* 6 */}
-
-					<div className="col-span-1">07</div>
+					<div className="col-span-1">06</div>
 				</div>
 			</Section>
 
