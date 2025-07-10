@@ -175,10 +175,10 @@ export default function Home() {
 
 			<Section>
 				<div
-					className="grid  grid-cols-1 grid-rows-6 *:col-span-1 lg:grid-cols-4 lg:grid-rows-3 \
+					className="grid  grid-cols-1 grid-rows-6 *:col-span-1 lg:grid-cols-4 lg:grid-rows-3 
 				 *:border *:rounded-sm *:px-6 *:py-5 gap-6 *:bg-white *:shadow-sm *:overflow-hidden *:h-56  *:sm:h-auto ">
 					{/* 1 Skills */}
-					<div className=" lg:col-span-3 lg:row-start-1 lg:row-span-1  overflow-hidden relative flex flex-row gap-4  ">
+					<div className=" lg:col-span-3 lg:row-start-1 lg:row-span-1  relative flex flex-row gap-4  ">
 						{/* <div className="absolute bottom-0 left-0 w-full   h-36  bg-gradient-to-t from-white hover:via-white to-transparent pointer-events-none" /> */}
 						<div className="w-full">
 							<h3 className=" text-2xl md:text-4xl font-bold mb-2">Skills</h3>
@@ -222,7 +222,7 @@ export default function Home() {
 						</div>
 					</div>
 					{/* 2 Experiences */}
-					<div className=" lg:row-span-2  lg:col-span-1 overflow-hidden ">
+					<div className=" lg:row-span-2  lg:col-span-1 ">
 						<h3 className="text-2xl font-semibold mb-2 ">
 							{/* text-gray-400 */}
 							{/* 							
