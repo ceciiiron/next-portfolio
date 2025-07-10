@@ -2,10 +2,12 @@
 
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const Navbar = () => {
 	const [isScrolled, setIsScrolled] = useState(false);
+	const pathName = usePathname();
 
 	useEffect(() => {
 		if (window.scrollY > 60) {
@@ -42,16 +44,28 @@ const Navbar = () => {
 			</div>
 
 			{/* hidden md:flex */}
-			<ul className="flex items-center gap-8 text-xs md:text-sm font-semibold cursor-pointer dark:text-gruvbox-light/80 transition-all">
-				<li className="hover:text-gruvbox-light transition-all">
-					<Link href={"/projects"}>Projects</Link>
+			<ul className="flex items-center gap-6 text-xs md:text-sm font-semibold cursor-pointer dark:text-gruvbox-light/80 transition-all text-gray-500 *:hover:text-black">
+				<li>
+					<Link href={"/"} className={cn(pathName === "/skills" && "text-black  underline underline-offset-8")}>
+						Skills
+					</Link>
 				</li>
-				{/* <li className="hover:text-gruvbox-light transition-all">
-					<a href="#projects">Work</a>{" "}
-				</li> */}
+				<li>
+					<Link href={"/projects"} className={cn(pathName === "/projects" && "text-black  underline underline-offset-8")}>
+						Projects
+					</Link>
+				</li>
 
-				<li className="hover:text-gruvbox-light transition-all">
-					<a href="#projects">Contact</a>{" "}
+				<li>
+					<Link href={"/"} className={cn(pathName === "/experiences" && "text-black  underline underline-offset-8")}>
+						Experiences
+					</Link>
+				</li>
+
+				<li>
+					<Link href={"/"} className={cn(pathName === "/contact" && "text-black  underline underline-offset-8")}>
+						Contact
+					</Link>
 				</li>
 			</ul>
 		</nav>
