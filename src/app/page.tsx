@@ -164,7 +164,7 @@ export default function Home() {
 						</Link>
 					</Button>
 					<Button size={"2xl"} variant={"secondary"} asChild>
-						<Link href="https://github.com/ceciiiron" target="_blank">
+						<Link href="https://www.linkedin.com/in/cecironalejoiii" target="_blank">
 							<IconBrandLinkedin size={25} />
 
 							<span className="hidden md:flex">LinkedIn</span>
