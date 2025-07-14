@@ -38,7 +38,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, badges, i
 		<div onClick={() => router.push(redirectTo)}>
 			<motion.div initial={{ opacity: 0, y: 15, filter: "blur(10px)" }} whileInView={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }} transition={{ duration: 0.5 }}>
 				<Card className={` p-0  gap-0 h-42 lg:h-52 ${className} overflow-hidden group cursor-pointer border-none shadow-none`}>
-					<div className=" overflow-hidden group relative w-full rounded-sm">
+					<div className=" overflow-hidden group relative w-full rounded-sm border">
 						<Image
 							src={imageSrc}
 							width={500}
@@ -62,8 +62,19 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ title, description, badges, i
 
 export default function page() {
 	return (
-		<Section>
+		<Section className="mt-">
 			<div className="">
+				{/* <Breadcrumb>
+					<BreadcrumbList>
+						<BreadcrumbItem>
+							<BreadcrumbLink href="/">Home</BreadcrumbLink>
+						</BreadcrumbItem>
+						<BreadcrumbSeparator />
+						<BreadcrumbItem>Projects</BreadcrumbItem>
+					</BreadcrumbList>
+				</Breadcrumb> */}
+
+				{/* <Section className=""> */}
 				<Breadcrumb>
 					<BreadcrumbList>
 						<BreadcrumbItem>
@@ -74,18 +85,17 @@ export default function page() {
 					</BreadcrumbList>
 				</Breadcrumb>
 
-				<Section className="">
-					<motion.div
-						initial={{ opacity: 0, y: 15, filter: "blur(5px)" }}
-						whileInView={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
-						transition={{ duration: 0.5 }}
-						className="flex flex-col">
-						<div className="text-center">
-							<p className="text-sm md:text-base inline-block px-6 py-2 shadow-sm bg-white border rounded-md mb-6">Built with love and passion ✨</p>
-							<h2 className="text-3xl md:text-6xl  font-bold  md:leading-18 mb-6">Featured Projects</h2>
-						</div>
-					</motion.div>
-				</Section>
+				<motion.div
+					initial={{ opacity: 0, y: 15, filter: "blur(5px)" }}
+					whileInView={{ y: 0, opacity: 1, scale: 1, filter: "blur(0px)" }}
+					transition={{ duration: 0.5 }}
+					className="flex flex-col">
+					<div className="text-center">
+						<p className="text-sm md:text-base inline-block px-6 py-2 shadow-sm bg-white border rounded-md mb-6">Built with love and passion ✨</p>
+						<h2 className="text-3xl md:text-5xl  font-bold  md:leading-18 mb-6">Featured Projects</h2>
+					</div>
+				</motion.div>
+				{/* </Section> */}
 
 				<div className="mt-[2rem] lg:mt-[4rem]">
 					<div className="cards-container grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
