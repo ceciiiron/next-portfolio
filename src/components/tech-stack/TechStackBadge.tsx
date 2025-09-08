@@ -1,11 +1,13 @@
 import React from "react";
-import { techIcons } from "./techIcons";
 import { TechStackBadgeProps } from "./types";
 import { cn } from "@/lib/utils";
 import { getSizeStyles } from "./utils";
+import { getIconByName } from "./iconRegistry";
+import { techIcons } from "./techIcons"; // Keep for backward compatibility during migration
 
 export const TechStackBadge: React.FC<TechStackBadgeProps> = ({ label, SVGIcon, className, size = "md", withLabel = true, withIcon = true }) => {
-	const icon = SVGIcon || techIcons[label];
+	// Try to get icon from new registry first, then fall back to legacy techIcons
+	const icon = SVGIcon || getIconByName(label) || techIcons[label];
 	const styles = getSizeStyles(size);
 
 	if (!icon) {
